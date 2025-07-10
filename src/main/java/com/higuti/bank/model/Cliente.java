@@ -1,4 +1,4 @@
-package com.higuti.bank;
+package com.higuti.bank.model;
 
 import jakarta.persistence.*;
 import lombok.*;

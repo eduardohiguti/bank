@@ -1,4 +1,4 @@
-package com.higuti.bank;
+package com.higuti.bank.model;
 
 public enum Categoria {
 

@@ -1,9 +1,9 @@
-package com.higuti.bank.services;
+package com.higuti.bank.service;
 
-import com.higuti.bank.Cliente;
-import com.higuti.bank.ClienteMapper;
-import com.higuti.bank.ClienteRepository;
-import com.higuti.bank.dtos.*;
+import com.higuti.bank.model.Cliente;
+import com.higuti.bank.mapper.ClienteMapper;
+import com.higuti.bank.repository.ClienteRepository;
+import com.higuti.bank.dto.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

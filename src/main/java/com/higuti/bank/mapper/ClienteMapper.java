@@ -1,8 +1,9 @@
-package com.higuti.bank;
+package com.higuti.bank.mapper;
 
-import com.higuti.bank.dtos.ClienteCreateDto;
-import com.higuti.bank.dtos.ClienteResponseDto;
-import com.higuti.bank.dtos.ClienteUpdateDto;
+import com.higuti.bank.dto.ClienteCreateDto;
+import com.higuti.bank.dto.ClienteResponseDto;
+import com.higuti.bank.dto.ClienteUpdateDto;
+import com.higuti.bank.model.Cliente;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 

@@ -1,9 +1,9 @@
-package com.higuti.bank;
+package com.higuti.bank.controller;
 
-import com.higuti.bank.dtos.ClienteCreateDto;
-import com.higuti.bank.dtos.ClienteResponseDto;
-import com.higuti.bank.dtos.ClienteUpdateDto;
-import com.higuti.bank.services.ClienteService;
+import com.higuti.bank.dto.ClienteCreateDto;
+import com.higuti.bank.dto.ClienteResponseDto;
+import com.higuti.bank.dto.ClienteUpdateDto;
+import com.higuti.bank.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
