@@ -1,6 +1,6 @@
 package com.higuti.bank.dto;
 
-import com.higuti.bank.model.Categoria;
+import com.higuti.bank.model.ClienteCategoria;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,5 +24,5 @@ public class ClienteCreateDto {
     private String email;
 
     @NotNull(message = "A categoria é obrigatória")
-    private Categoria categoria;
+    private ClienteCategoria categoria;
 }

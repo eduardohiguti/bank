@@ -3,6 +3,9 @@ package com.higuti.bank.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name="clients")
 @Builder
@@ -27,5 +30,18 @@ public class Cliente {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Categoria categoria;
+    private ClienteCategoria categoria;
+
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    private Set<Conta> contas = new HashSet<>();
+
+    public void addConta(Conta conta) {
+        this.contas.add(conta);
+        conta.setCliente(this);
+    }
+
+    public void removeConta(Conta conta) {
+        this.contas.remove(conta);
+        conta.setCliente(null);
+    }
 }
