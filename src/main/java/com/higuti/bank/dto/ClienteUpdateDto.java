@@ -1,6 +1,6 @@
-package com.higuti.bank.dtos;
+package com.higuti.bank.dto;
 
-import com.higuti.bank.Categoria;
+import com.higuti.bank.model.ClienteCategoria;
 import jakarta.validation.constraints.Email;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,5 +14,5 @@ public class ClienteUpdateDto {
     @Email(message = "Formato de e-mail inválido")
     private String email;
 
-    private Categoria categoria;
+    private ClienteCategoria categoria;
 }

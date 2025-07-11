@@ -1,9 +1,9 @@
-package com.higuti.bank.services;
+package com.higuti.bank.service;
 
-import com.higuti.bank.Cliente;
-import com.higuti.bank.ClienteMapper;
-import com.higuti.bank.ClienteRepository;
-import com.higuti.bank.dtos.*;
+import com.higuti.bank.model.Cliente;
+import com.higuti.bank.mapper.ClienteMapper;
+import com.higuti.bank.repository.ClienteRepository;
+import com.higuti.bank.dto.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +13,6 @@ import java.util.Optional;
 public class ClienteService {
 
     private final ClienteRepository clienteRepository;
-
     private final ClienteMapper clienteMapper;
 
     public ClienteService(ClienteRepository clienteRepository, ClienteMapper clienteMapper) {
@@ -49,14 +48,5 @@ public class ClienteService {
         Cliente clienteAtualizado = clienteRepository.save(clienteExistente);
 
         return clienteMapper.toResponseDto(clienteAtualizado);
-    }
-
-    @Transactional
-    public void deletarCliente(Long id) {
-        if (!clienteRepository.existsById(id)) {
-            throw new RuntimeException("Cliente não encontrado para deleção com Id: " + id);
-        }
-
-        clienteRepository.deleteById(id);
     }
 }

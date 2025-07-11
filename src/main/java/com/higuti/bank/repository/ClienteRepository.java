@@ -1,5 +1,6 @@
-package com.higuti.bank;
+package com.higuti.bank.repository;
 
+import com.higuti.bank.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
