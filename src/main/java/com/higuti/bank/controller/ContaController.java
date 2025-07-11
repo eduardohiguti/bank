@@ -56,13 +56,6 @@ public class ContaController {
         return ResponseEntity.ok(contaAtualizada);
     }
 
-    @PutMapping("/{id}/inativar")
-    public ResponseEntity<ContaResponseDto> inativarConta(@PathVariable Long id) {
-        ContaResponseDto contaInativada = contaService.inativarConta(id);
-
-        return ResponseEntity.ok(contaInativada);
-    }
-
     @PutMapping("/{id}/ativar")
     public ResponseEntity<ContaResponseDto> ativarConta(@PathVariable Long id) {
         ContaResponseDto contaAtivada = contaService.ativarConta(id);
@@ -70,7 +63,14 @@ public class ContaController {
         return ResponseEntity.ok(contaAtivada);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/inativar")
+    public ResponseEntity<ContaResponseDto> inativarConta(@PathVariable Long id) {
+        ContaResponseDto contaInativada = contaService.inativarConta(id);
+
+        return ResponseEntity.ok(contaInativada);
+    }
+
+    @PutMapping("/{id}/encerrar")
     public ResponseEntity<ContaResponseDto> encerrarConta(@PathVariable Long id) {
         ContaResponseDto contaEncerrada = contaService.encerrarConta(id);
 
