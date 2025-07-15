@@ -15,9 +15,11 @@ public interface ContaRepository extends JpaRepository<Conta, Long> {
 
     List<Conta> findByCliente(Cliente cliente);
 
-    Optional<Conta> findByNumeroContaAndAgenciaAndContaStatusEquals(String numeroConta, String agencia, ContaStatus contaStatus);
+    Optional<Conta> findByNumeroContaAndAgenciaAndContaStatus(String numeroConta, String agencia, ContaStatus contaStatus);
 
     Optional<Conta> findByClienteAndNumeroConta(Cliente cliente, String numeroConta);
+
+    Optional<Conta> findByIdAndContaStatus(Long id, ContaStatus contaStatus);
 
     @Modifying
     @Query("UPDATE Conta c SET c.contaStatus = :novoStatus WHERE c.cliente.id = :clienteId")
