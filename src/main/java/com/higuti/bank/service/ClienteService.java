@@ -4,6 +4,7 @@ import com.higuti.bank.model.Cliente;
 import com.higuti.bank.mapper.ClienteMapper;
 import com.higuti.bank.repository.ClienteRepository;
 import com.higuti.bank.dto.*;
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,11 +32,12 @@ public class ClienteService {
 
     @Transactional(readOnly = true)
     public ClienteResponseDto buscarClientePorId(Long id) {
-        Optional<Cliente> clienteOptional = clienteRepository.findById(id);
-
-        return clienteOptional
-                .map(clienteMapper::toResponseDto)
+        Cliente cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado com Id: " + id));
+
+        Hibernate.initialize(cliente.getContas());
+
+        return clienteMapper.toResponseDto(cliente);
     }
 
     @Transactional
@@ -46,6 +48,8 @@ public class ClienteService {
         clienteMapper.updateClienteFromDto(clienteUpdateDto, clienteExistente);
 
         Cliente clienteAtualizado = clienteRepository.save(clienteExistente);
+
+        Hibernate.initialize(clienteAtualizado.getContas());
 
         return clienteMapper.toResponseDto(clienteAtualizado);
     }

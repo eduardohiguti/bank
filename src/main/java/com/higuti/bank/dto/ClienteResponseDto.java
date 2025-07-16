@@ -1,12 +1,11 @@
 package com.higuti.bank.dto;
 
 import com.higuti.bank.model.ClienteCategoria;
-import com.higuti.bank.model.Conta;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,5 +22,5 @@ public class ClienteResponseDto {
 
     private ClienteCategoria categoria;
 
-    private Set<Conta> contas;
+    private List<ContaResponseDto> contas;
 }

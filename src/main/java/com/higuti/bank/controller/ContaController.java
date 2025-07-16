@@ -49,7 +49,7 @@ public class ContaController {
         return ResponseEntity.ok(contas);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/update")
     public ResponseEntity<ContaResponseDto> updateConta(@PathVariable Long id, @RequestBody @Valid ContaUpdateDto contaUpdateDto) {
         ContaResponseDto contaAtualizada = contaService.atualizarConta(id, contaUpdateDto);
 
