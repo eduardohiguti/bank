@@ -1,5 +1,6 @@
 package com.higuti.bank.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,7 +33,9 @@ public class Cliente {
     @Column(nullable = false)
     private ClienteCategoria categoria;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @Builder.Default
     private Set<Conta> contas = new HashSet<>();
 
     public void addConta(Conta conta) {

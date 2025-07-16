@@ -1,6 +1,5 @@
 package com.higuti.bank.dto;
 
-import com.higuti.bank.model.Cliente;
 import com.higuti.bank.model.ContaStatus;
 import com.higuti.bank.model.ContaTipo;
 import lombok.Builder;
@@ -25,6 +24,4 @@ public class ContaResponseDto {
     private ContaTipo contaTipo;
 
     private ContaStatus contaStatus;
-
-    private Long clienteId;
 }

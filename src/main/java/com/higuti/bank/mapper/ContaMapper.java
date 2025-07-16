@@ -14,7 +14,6 @@ public interface ContaMapper {
     @Mapping(source = "saldoInicial", target = "saldo")
     Conta toEntity(ContaCreateDto dto);
 
-    @Mapping(source = "cliente.id", target = "clienteId")
     ContaResponseDto toResponseDto(Conta conta);
 
     void updateContaFromDto(ContaUpdateDto dto, @MappingTarget Conta conta);
